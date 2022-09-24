@@ -17,6 +17,9 @@ export async function loader({ request }: LoaderArgs) {
   if (!source) {
     return new Response("No source provided", { status: 400 });
   }
+  if (source.startsWith("~/")) {
+    source = source.replace(/^~\//, "app/");
+  }
   try {
     source = path.resolve(process.cwd(), source);
   } catch {

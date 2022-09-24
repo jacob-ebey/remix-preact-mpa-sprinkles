@@ -51,6 +51,7 @@ export default function Island({
       {child}
       <script
         id={id}
+        async
         type="module"
         dangerouslySetInnerHTML={{
           __html: scriptContent,
